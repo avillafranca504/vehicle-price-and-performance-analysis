@@ -51,10 +51,17 @@ Features included:
 |Powertrain Type	            |Vehicle propulsion system.                                     	|Petrol,Diesel,Hybrid,EV|
 |Fuel Type	                    |Primary energy source used by the vehicle.                         |Petrol,Diesel,Petrol+Electric/Diesel+Electric//Electric|
 
-### Tools
+### Tools & Technologies
 
 - Python
-- PowerBI
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- XGBoost
+- Power BI
+- Jupyter Notebook
 
 ### Workflow
 
@@ -66,3 +73,53 @@ Features included:
 6. Power BI Dashboard Development
 7. Predictive Modeling
 8. Model Evaluation & Error Analysis
+
+### Hypotheses
+- H1: Vehicles with higher performance characteristics tend to have higher market prices. 
+- H2: Vehicles equipped with more advanced technology features tend to command higher market prices. 
+- H3:Premium, Luxury, Performance, E-, and F-segment vehicles exhibit higher average prices than lower vehicle segments. 
+- H4:Electrified vehicles occupy higher price ranges than conventional internal combustion engine vehicles. 
+- H5:Vehicle characteristics can explain a substantial proportion of vehicle price variation, resulting in accurate price predictions (R² > 0.90).
+
+### Model Scope
+
+The predictive models were developed using vehicle specifications, performance metrics, technology features, efficiency measures, safety indicators, and vehicle classifications.
+
+To improve interpretability and reduce redundancy, several variables were excluded from the predictive modeling stage:
+- Model_Name and Brand were removed because the objective was to evaluate how vehicle characteristics influence market value rather than capture manufacturer-specific pricing effects.
+- Fuel_Type was excluded due to its overlap with Powertrain Type.
+- Segment_System and Vehicle_Classification were removed because they contained information already represented by other vehicle segmentation variables.
+- ADAS_Level was replaced with a cleaned and standardized version of the feature.
+
+This approach allowed the analysis to focus on the relationship between vehicle specifications, technology features, market positioning, and vehicle prices.
+
+### Model Performance
+
+| Model | RMSE (€) | R² |
+|---------|---------:|---------:|
+| Dummy Regressor | XX,XXX | -0.00 |
+| Linear Regression | 4,3XX | 0.973 |
+| XGBoost | 4,6XX | 0.969 |
+
+Linear Regression achieved the strongest predictive performance while remaining highly interpretable, making it the preferred model for explaining vehicle pricing.
+
+
+### Interactive Dashboard
+
+#### Executive Overview
+![Executive Overview](./images/executive_overview.png)
+
+#### Pricing Analysis
+![Pricing Analysis](./images/pricing_analysis.png)
+
+#### Price Driver Analysis
+![Price Drivers](./images/price_drivers.png)
+
+
+### Key Findings
+
+- Vehicle prices are strongly associated with performance characteristics such as horsepower, torque, top speed, and acceleration.
+- Advanced technology features, including higher ADAS levels and larger battery capacities, are associated with higher vehicle prices.
+- Premium, Luxury, Performance, E-, and F-segment vehicles command substantially higher prices than lower vehicle segments.
+- Electrified vehicles generally occupy higher price ranges and exhibit greater price variability than conventional vehicles.
+- Vehicle characteristics explain a substantial proportion of price variation, with the best-performing model achieving an R² greater than 0.97.
