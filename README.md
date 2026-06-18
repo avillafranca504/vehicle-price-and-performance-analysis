@@ -97,9 +97,10 @@ This approach allowed the analysis to focus on the relationship between vehicle 
 
 | Model | RMSE (€) | R² |
 |---------|---------:|---------:|
-| Dummy Regressor | XX,XXX | -0.00 |
-| Linear Regression | 4,3XX | 0.973 |
-| XGBoost | 4,6XX | 0.969 |
+| Dummy Regressor | 26,455.05 | -0.0014 |
+| Linear Regression | 4,331.68 | 0.9732 |
+| XGBoost | 4,620.99 | 0.9694 |
+
 
 Linear Regression achieved the strongest predictive performance while remaining highly interpretable, making it the preferred model for explaining vehicle pricing.
 
