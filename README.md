@@ -5,26 +5,30 @@ designed by aleksandarlittlewolf - Magnific.com
 
 ### Project Overview
 
-This project analyzes a dataset of passenger vehicles available in the European market to identify the factors that influence vehicle pricing and market positioning.
+This project analyzes a dataset of passenger vehicles reportely available in the European market to identify the factors that influence vehicle pricing and market positioning.
 
-Using exploratory data analysis, interactive Power BI dashboards, and machine learning regression models, the project investigates how performance, technology, electrification, efficiency, safety features, and vehicle segmentation contribute to market value.
+Using exploratory data analysis, interactive Power BI dashboards, and machine learning regression models, the project investigates how performance, technology, electrification, efficiency, safety features, and vehicle segmentation contribute to market value within the dataset.
 
-The findings support a non-European automotive manufacturer seeking to enter the European market by providing data-driven insights for product positioning, pricing strategy, feature prioritization, and market entry decisions.
+The findings are presented within the context of a hypothetical non-European automotive manufacturer seeking to enter the European market. The project demonstrates how data-driven methods can be used to support product positioning, pricing strategy, feature prioritization, and market-entry assessments.
 
 ### Project Motivation
 
 A non-European automotive manufacturer planning to enter the European passenger vehicle market must understand which vehicle characteristics drive customer value and pricing.
 
-By identifying the attributes most strongly associated with vehicle prices, the stakeholder can make informed decisions regarding product design, technology investments, market positioning, and pricing strategy.
+By identifying the attributes most strongly associated with vehicle prices within the dataset, the project illustrates how analytical insights can support decisions related to product design, technology investments, market positioning, and pricing strategy.
 
 ### Objective
 
-The primary objective of this project is to identify the factors that influence vehicle prices and evaluate whether vehicle characteristics can accurately predict market value. Since the target variable, Price (EUR), is a continuous numerical variable, the task is formulated as a regression problem.
+The primary objective of this project is to identify the factors most strongly associated with vehicle prices and evaluate whether vehicle characteristics can accurately predict prices within the dataset. Since the target variable, Price (EUR), is a continuous numerical variable, the task is formulated as a regression problem.
+
+### Limitations
+
+The dataset was obtained from Kaggle and references multiple automotive sources; however, the complete data collection methodology is not publicly documented. Additionally, exploratory analysis identified several vehicle-brand and body-type combinations that do not appear to reflect real-world market offerings, suggesting that some records may be synthetic or simplified. Consequently, the findings should be interpreted as exploratory and illustrative rather than as a direct representation of the European automotive market.
 
 ### Dataset
 Source: [Kaggle - European Car Dataset](https://www.kaggle.com/datasets/eswarpanchakarla/european-cars-dataset) <br>
 Features included:
-|Column                         |Description                                                |Typical Range*/Values|
+|Column                         |Description                                                |Observed Range*/Values|
 |---|---|--|
 |Brand	                        |Vehicle manufacturer or brand.                                     |- |
 |Body Type	                    |Vehicle body configuration describing the vehicle's design and form factor.                         |Convertible, Coupe, Crossover, Fastback, Hatchback, MPV, Pickup, SUV, Sedan, Wagon|
@@ -35,7 +39,7 @@ Features included:
 |0–100 km/h (s)	                |Time required to accelerate from 0 to 100 km/h.	                |3–14 s|
 |Top Speed (km/h)	            |Maximum achievable vehicle speed (km/h).                           |140–250 km/h|
 |Towing Capacity (kg)	        |Maximum towing capacity (kg).                                      |0–2500 kg|
-|Price (EUR)	                |Average vehicle market price in euros.                             |€18,000–€120,000|
+|Price (EUR)	                |Recorded average vehicle price in euros.                             |€18,000–€120,000|
 |Charging Time (min)	        |Time required for a full charge (0 for ICE cars).          	    |0–60 min|
 |Max Charging Power (kW)	    |Maximum supported charging power (kW).	                            |0–350 (kW)|
 |Horsepower (HP)	            |Engine or motor output in horsepower.          	                |70–700 H|
@@ -74,12 +78,25 @@ Features included:
 7. Predictive Modeling
 8. Model Evaluation & Error Analysis
 
+
 ### Hypotheses
+
 - H1: Vehicles with higher performance characteristics tend to have higher market prices. 
 - H2: Vehicles equipped with more advanced technology features tend to command higher market prices. 
-- H3:Premium, Luxury, Performance, E-, and F-segment vehicles exhibit higher average prices than lower vehicle segments. 
-- H4:Electrified vehicles occupy higher price ranges than conventional internal combustion engine vehicles. 
-- H5:Vehicle characteristics can explain a substantial proportion of vehicle price variation, resulting in accurate price predictions (R² > 0.90).
+- H3: Premium, Luxury, Performance, E-, and F-segment vehicles exhibit higher average prices than lower vehicle segments. 
+- H4: Electrified vehicles occupy higher price ranges than conventional internal combustion engine vehicles. 
+- H5: Vehicle characteristics can explain a substantial proportion of vehicle price variation, resulting in accurate price predictions (R² > 0.90).
+
+### Data Transformation and Feature Engineering
+
+Several preprocessing and feature engineering steps were performed to improve data quality and prepare the dataset for analysis and predictive modeling:
+
+- Standardized column names and data formats to ensure consistency across variables.
+- Cleaned and encoded categorical variables for exploratory analysis and machine learning applications.
+- Corrected and standardized inconsistent ADAS level values.
+- Created additional segmentation and vehicle classification features to support comparative analysis.
+- Identified and addressed missing values, data inconsistencies, and potential data quality issues.
+- Prepared dataset for regression modeling and model evaluation.
 
 ### Model Scope
 
@@ -101,9 +118,7 @@ This approach allowed the analysis to focus on the relationship between vehicle 
 | Linear Regression | 4,331.68 | 0.9732 |
 | XGBoost | 4,620.99 | 0.9694 |
 
-
-Linear Regression achieved the strongest predictive performance while remaining highly interpretable, making it the preferred model for explaining vehicle pricing.
-
+Linear Regression achieved the strongest predictive performance while remaining highly interpretable, making it the preferred model for understanding the relationships between vehicle characteristics and recorded vehicle prices within the dataset.
 
 ### Interactive Dashboard
 
@@ -121,6 +136,6 @@ Linear Regression achieved the strongest predictive performance while remaining 
 
 - Vehicle prices are strongly associated with performance characteristics such as horsepower, torque, top speed, and acceleration.
 - Advanced technology features, including higher ADAS levels and larger battery capacities, are associated with higher vehicle prices.
-- Premium, Luxury, Performance, E-, and F-segment vehicles command substantially higher prices than lower vehicle segments.
-- Electrified vehicles generally occupy higher price ranges and exhibit greater price variability than conventional vehicles.
+- Premium, Luxury, Performance, E-, and F-segment vehicles exhibit substantially higher recorded prices than lower vehicle segments.
+- Electrified vehicles generally exhobit higher price ranges and exhibit greater price variability than conventional vehicles.
 - Vehicle characteristics explain a substantial proportion of price variation, with the best-performing model achieving an R² greater than 0.97.
